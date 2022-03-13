@@ -29678,7 +29678,9 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieView, [{
     key: "render",
     value: function render() {
-      var movie = this.props.movie;
+      var _this$props = this.props,
+          movie = _this$props.movie,
+          onBackClick = _this$props.onBackClick;
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-view"
       }, /*#__PURE__*/_react.default.createElement("div", {
@@ -29697,7 +29699,11 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "label"
       }, "Description: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movie.Description)));
+      }, movie.Description)), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: function onClick() {
+          onBackClick(null);
+        }
+      }, "Back"));
     }
   }]);
 
@@ -29799,6 +29805,13 @@ var MainView = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(MainView, [{
+    key: "setSelectedMovie",
+    value: function setSelectedMovie(newSelectedMovie) {
+      this.setState({
+        selectedMovie: newSelectedMovie
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -29806,22 +29819,22 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       var _this$state = this.state,
           movies = _this$state.movies,
           selectedMovie = _this$state.selectedMovie;
-      if (selectedMovie) return /*#__PURE__*/_react.default.createElement(_movieView.MovieView, {
-        movie: selectedMovie
-      });
       if (movies.length === 0) return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
       }, "The list is empty!");
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "main-view"
-      }, movies.map(function (movie) {
+      }, selectedMovie ? /*#__PURE__*/_react.default.createElement(_movieView.MovieView, {
+        movie: selectedMovie,
+        onBackClick: function onBackClick(newSelectedMovie) {
+          _this2.setSelectedMovie(newSelectedMovie);
+        }
+      }) : movies.map(function (movie) {
         return /*#__PURE__*/_react.default.createElement(_movieCard.MovieCard, {
           key: movie._id,
           movie: movie,
-          onMovieClick: function onMovieClick(newSelectedMovie) {
-            _this2.setState({
-              selectedMovie: newSelectedMovie
-            });
+          onMovieClick: function onMovieClick(movie) {
+            _this2.setSelectedMovie(movie);
           }
         });
       }));
@@ -29995,7 +30008,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53635" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63125" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
