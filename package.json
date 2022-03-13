@@ -1,28 +1,78 @@
 {
   "name": "myflix-client",
+  "description": "A client-side application, created with React.js and Sass, called dennisFlix that uses pre-existing server-side code (REST - API ond Mongo-DB)",
   "version": "1.0.0",
-  "description": "myFlix-client",
-  "main": "src/index.html",
-  "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dwXwd/dennisFLix-client.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dwXwd/dennisFLix-client/issues"
-  },
-  "homepage": "https://github.com/dwXwd/dennisFLix-client#readme",
+  "source": "src/index.html",
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "ansi-styles": "^4.3.0",
+    "anymatch": "^3.1.2",
+    "base-x": "^3.0.9",
+    "abortcontroller-polyfill": "^1.7.3",
+    "braces": "^3.0.2",
+    "caniuse-lite": "^1.0.30001315",
+    "browserslist": "^4.20.0",
+    "binary-extensions": "^2.2.0",
+    "chalk": "^4.1.2",
+    "chrome-trace-event": "^1.0.3",
+    "chokidar": "^3.5.3",
+    "color-convert": "^2.0.1",
+    "detect-libc": "^1.0.3",
+    "dotenv": "^7.0.0",
+    "dotenv-expand": "^5.1.0",
+    "fill-range": "^7.0.1",
+    "electron-to-chromium": "^1.4.82",
+    "has-flag": "^4.0.0",
+    "color-name": "^1.1.4",
+    "escalade": "^3.1.1",
+    "glob-parent": "^5.1.2",
+    "is-binary-path": "^2.1.0",
+    "immutable": "^4.0.0",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "json-source-map": "^0.6.1",
+    "json5": "^2.2.0",
+    "lmdb": "^2.2.5",
+    "msgpackr-extract": "^1.0.16",
+    "is-number": "^7.0.0",
+    "minimist": "^1.2.5",
+    "msgpackr": "^1.5.5",
+    "nan": "^2.15.0",
+    "node-addon-api": "^3.2.1",
+    "normalize-path": "^3.0.0",
+    "nullthrows": "^1.1.1",
+    "node-releases": "^2.0.2",
+    "node-gyp-build": "^4.3.0",
+    "ordered-binary": "^1.2.4",
+    "picomatch": "^2.3.1",
+    "semver": "^5.7.1",
+    "safe-buffer": "^5.2.1",
+    "readdirp": "^3.6.0",
+    "source-map-js": "^1.0.2",
+    "sass": "^1.49.9",
+    "utility-types": "^3.10.0",
+    "supports-color": "^7.2.0",
+    "to-regex-range": "^5.0.1",
+    "weak-lru-cache": "^1.2.2",
+    "clone": "^2.1.2",
+    "picocolors": "^1.0.0",
+    "xxhash-wasm": "^0.4.2"
   },
   "devDependencies": {
         "@parcel/transformer-sass": "^2.3.2",
         "parcel": "^2.3.2"
-    }
+    },
+  "scripts": {
+          "start": "parcel",
+          "build": "parcel build"
+      },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwXwd/dennisFLix-client.git"
+  },
+  "author": "Dennis Weißert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwXwd/dennisFLix-client/issues"
+  },
+  "homepage": "https://github.com/dwXwd/dennisFLix-client#readme"
 }
