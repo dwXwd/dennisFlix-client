@@ -31,4 +31,4 @@ export function LoginView(props) {
       <Button>Not registered yet?</Button>
     </Form>
   );
-} 
+}
