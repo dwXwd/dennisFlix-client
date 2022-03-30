@@ -17,17 +17,7 @@ export class MainView extends React.Component {
     }
   }
 
-    componentDidMount(){
-    axios.get('https://dennisflix.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+
 
   //When a movie is clicked this function is invoked and "selects" the movie
   setSelectedMovie(newSelectedMovie) {
@@ -36,9 +26,8 @@ export class MainView extends React.Component {
     });
   }
 
-// src/components/main-view/main-view.jsx
 getMovies(token) {
-  axios.get('YOUR_API_URL/movies', {
+  axios.get('https://dennisflix.herokuapp.com/movies', {
     headers: { Authorization: `Bearer ${token}`}
   })
   .then(response => {
@@ -63,6 +52,18 @@ onLoggedIn(authData) {
   localStorage.setItem('token', authData.token);
   localStorage.setItem('user', authData.user.Username);
   this.getMovies(authData.token);
+
+
+  }
+
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
 }
 
   render() {
