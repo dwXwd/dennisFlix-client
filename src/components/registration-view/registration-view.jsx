@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import {Button, Form, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
+import axios from 'axios';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ birthday, setBirthday] = useState('');
+  const [ birthday, setBirth_Date] = useState('');
   const [email, setEmail] = useState('');
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+axios.post('https://dennisflix.herokuapp.com/users', {
+  Username: username,
+  Password: password,
+  Email: email,
+  Birth_Date: birthday
+})
+.then(response => {
+  const data = response.data;
+  console.log(data);
+  window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+})
+.catch(e => {
+  console.log('error registering the user')
+});
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     console.log(username, password, birthday, email);
     /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
@@ -44,7 +60,7 @@ export function RegistrationView(props) {
                     onChange={e => setPassword(e.target.value)} 
                     placeholder="Enter your Password here..."
                     required
-                    minLenght="8"
+                    minLength="8"
                     />
                   </Form.Group>
                   <Form.Group>
@@ -52,7 +68,7 @@ export function RegistrationView(props) {
                     <Form.Control 
                       type="birthday" 
                       value={birthday} 
-                      onChange={e => setBirthday(e.target.value)} 
+                      onChange={e => setBirth_Date(e.target.value)} 
                       placeholder="Enter your Birthday here..."
                       />
 
@@ -63,7 +79,7 @@ export function RegistrationView(props) {
                     type="email" 
                     value={email} 
                     onChange={e => setEmail(e.target.value)}
-                    placeholder="Ener your Email-Adress here..." />
+                    placeholder="Enter your Email-Adress here..." />
                     required
                   </Form.Group>
                   
@@ -77,8 +93,3 @@ export function RegistrationView(props) {
     </Container>
   );
 }
-
-
-RegistrationView.propTypes = {
-  onRegistered: PropTypes.func.isRequired
-};

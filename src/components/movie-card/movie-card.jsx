@@ -2,16 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Container, Col, Row, Card, Button, CardGroup} from 'react-bootstrap';
 
+import { Link } from "react-router-dom";
+
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onMovieClick } = this.props;
+    const { movie } = this.props;
 
     return (
       <Container>
       <CardGroup>
           <Card id="movie-card">
               <Card.Body>
-                  <Card.Text id="card-button" onClick={() => onMovieClick(movie)}>{movie.Title}</Card.Text>
+                  <Card.Title id="card-button">{movie.Title}</Card.Title>
+                  <Link to={`/movies/${movie._id}`}>
+                    <Button variant="link">Open</Button>
+                  </Link>
               </Card.Body>
           </Card>
       </CardGroup>
@@ -36,6 +41,5 @@ MovieCard.propTypes = {
     }),
     Actors: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  }).isRequired
 };
