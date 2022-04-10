@@ -39983,14 +39983,6 @@ function LoginView(props) {
                                             },
                                             __self: this,
                                             children: "Submit"
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                            __source: {
-                                                fileName: "src/components/login-view/login-view.jsx",
-                                                lineNumber: 54
-                                            },
-                                            __self: this,
-                                            children: "Not registered yet?"
                                         })
                                     ]
                                 })
@@ -40184,7 +40176,7 @@ function RegistrationView(props) {
                                                     children: "Birthday:"
                                                 }),
                                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                                    type: "birthday",
+                                                    type: "date",
                                                     value: birthday,
                                                     onChange: (e)=>setBirth_Date(e.target.value)
                                                     ,
@@ -40720,7 +40712,7 @@ function ProfileView(props) {
                                                         children: "Birthday:"
                                                     }),
                                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
-                                                        type: "birthday",
+                                                        type: "date",
                                                         value: birthday,
                                                         onChange: (e)=>setBirthday(e.target.value)
                                                         ,

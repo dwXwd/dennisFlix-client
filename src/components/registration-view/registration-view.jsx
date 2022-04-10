@@ -66,7 +66,7 @@ axios.post('https://dennisflix.herokuapp.com/users', {
                   <Form.Group>
                   <Form.Label>Birthday:</Form.Label>
                     <Form.Control 
-                      type="birthday" 
+                      type="date" 
                       value={birthday} 
                       onChange={e => setBirth_Date(e.target.value)} 
                       placeholder="Enter your Birthday here..."

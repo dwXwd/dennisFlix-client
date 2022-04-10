@@ -51,7 +51,6 @@ export function LoginView(props) {
                   <Button variant="primary" type="submit" onClick={handleSubmit}>
                     Submit
                   </Button>
-                  <Button>Not registered yet?</Button>
                 </Form>
               </Card.Body>
             </Card>
