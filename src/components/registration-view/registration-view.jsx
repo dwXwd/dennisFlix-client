@@ -14,8 +14,7 @@ export function RegistrationView() {
     event.preventDefault();
     console.log(username, password, birthday, email);
     /* Send a request to the server for authentication */
-    axios
-      .post("https://dennisflix.herokuapp.com/users", {
+    axios.post("https://dennisflix.herokuapp.com/users", {
         Username: username,
         Password: password,
         Email: email,

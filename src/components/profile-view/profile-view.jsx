@@ -5,49 +5,51 @@ import { Button, Form, Card, CardGroup, Container, Col, Row } from 'react-bootst
 import { FavoriteMovies } from './favorite-movies';
 
 export function ProfileView(props) {
+    const {user} = props;
+    const {movies} = props;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [birthday, setBirthday] = useState('');
     const [email, setEmail] = useState('');
 
     // constant to hold favorite movie list from userdata
-    const [favoriteMovieList, setFavoriteMovieList] = useState([]);
+    const [favoriteMovieList, setFavoriteMovieList] = useState ([]);
+    const token = localStorage.getItem('token');
 
-    const getUser = (username) => {
-        const bearerToken = localStorage.getItem('token');
+    const  getUser = (username, token) => {
         axios.get(`https://dennisflix.herokuapp.com/users/${username}`, {
-            headers: {
-                "Authorization": `Bearer ${bearerToken}`
-            }
-        })
-            .then(response => {
-                //Assign the result to the userdata
+            headers: { Authorization: `Bearer ${token}` }
+          })
+          .then(response => {
+            const user = response.data;
+            console.log(user);
+            setUsername(user.Username)
+            setPassword(response.data.Password)
+            setEmail(response.data.Email)
+            setBirthday(response.data.Birth_Date)
+            setFavoriteMovieList(movies.filter(m => response.data.FavoriteMovies.includes(m._id)));
 
-                setUsername(response.data.Username);
-                setPassword(response.data.Password);
-                setBirthday(response.data.Birth_Date);
-                setEmail(response.data.Email);
-                setFavoriteMovieList(props.movies.filter(m => response.data.FavoriteMovies.includes(m._id)));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    
+    useEffect( () => {
+        if (user) {
+        getUser(username, token)
+        }
+    })
 
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    }
-
-    useEffect(() => {
-        getUser(props.user)
-    }, [])
-
-    const updateUser = () => {
-        const bearerToken = localStorage.getItem('token');
-        axios.put(`https://dennisflix.herokuapp.com/users/${username}`, {
+    const updateUser = (token, username) => {
+        axios.put(`https://dennisflix.herokuapp.com/users/${username}`,  {
             Username: username,
             Password: password,
-            Email: email
+            Email: email,
+            Birth_Date: birthday
         }, {
             headers: {
-                "Authorization": `Bearer ${bearerToken}`
+                "Authorization": `Bearer ${token}`
             }
         })
             .then(response => {
@@ -60,20 +62,20 @@ export function ProfileView(props) {
             });
     }
 
-    
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        updateUser();
+        updateUser(token, username);
     }
 
     /* Function that allows users to remove a movie from their list of favorites */
     const removeFav = (id) => {
-        axios.delete(`https://dennisflix.herokuapp.com/users/${username}/movies/${id}`)
+        axios.delete(`https://dennisflix.herokuapp.com/users/${username}/movies/${id}`, {
+            headers: { Authorization: `Bearer ${token}` }
+          })
             .then(() => {
                 // Change state of favoriteMovieList to rerender component
                 setFavoriteMovieList(props.movies.filter(m => response.data.FavoriteMovies.includes(m._id)));
+
             })
             .catch(e => {
                 console.log(e);

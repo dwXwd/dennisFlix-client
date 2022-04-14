@@ -4,6 +4,7 @@ import { Button, Card, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export function FavoriteMovies({ favoriteMovieList, removeFav }) {
+
     return (
         <Container>
             <Row>
@@ -19,7 +20,7 @@ export function FavoriteMovies({ favoriteMovieList, removeFav }) {
                                 <Card.Img variant="top" src={movie.ImagePath} className="img-responsive" />
                                 <Card.Body>
                                     <Card.Title>{movie.Title}</Card.Title>
-                                    <Button variant="outline-danger" onClick={() => removeFav(movie._id)}>Remove from Favorites</Button>
+                                    <Button variant="outline-danger" onClick={() => removeFav(movie._id) }>Remove from Favorites</Button>
                                     <Link to={`/movies/${movie._id}`}>
                                         <Button variant="link">More Info</Button>
                                     </Link>

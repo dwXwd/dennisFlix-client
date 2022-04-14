@@ -12,7 +12,7 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 
-import { Row, Col, Card, Cardgroup, Container, Button } from 'react-bootstrap';
+import { Row, Col, Container} from 'react-bootstrap';
 
 
 export class MainView extends React.Component {
@@ -22,18 +22,9 @@ export class MainView extends React.Component {
     this.state = {
       user: null,
       movies: [],
-      selectedMovie: null
     }
   }
 
-
-
-  //When a movie is clicked this function is invoked and "selects" the movie
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({
-      selectedMovie: newSelectedMovie
-    });
-  }
 
   getMovies(token) {
     axios.get('https://dennisflix.herokuapp.com/movies', {
@@ -50,24 +41,6 @@ export class MainView extends React.Component {
       });
   }
 
-  getUsers(token) {
-    axios.get('https://dennisflix.herokuapp.com/users', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        // Assign the result to the state
-        this.setState({
-          users: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-
-
-
 
   //On login the user user's state changes to the particular user
 
@@ -80,9 +53,9 @@ export class MainView extends React.Component {
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
-
   }
 
+  // When token is present (user is logged in), get list of movies
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -93,8 +66,11 @@ export class MainView extends React.Component {
     }
   }
 
+
   render() {
-    const { movies, user } = this.state;
+    const { movies, user} = this.state;
+
+
 
     return (
       <Container>
@@ -132,7 +108,7 @@ export class MainView extends React.Component {
               if (!user) return <Redirect to="/" />
               return (
                 <Col xs={12} md={10}>
-                  <ProfileView user={user} movies={movies} onBackClick={() => history.goBack()} />
+                  <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
                 </Col>
               )
             }} />
