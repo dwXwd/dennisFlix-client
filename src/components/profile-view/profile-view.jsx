@@ -21,9 +21,9 @@ export function ProfileView(props) {
             headers: { Authorization: `Bearer ${token}` }
           })
           .then(response => {
-            const user = response.data;
-            console.log(user);
-            setUsername(user.Username)
+            const userData = response.data;
+            console.log(userData);
+            setUsername(response.data.Username)
             setPassword(response.data.Password)
             setEmail(response.data.Email)
             setBirthday(response.data.Birth_Date)
@@ -36,10 +36,10 @@ export function ProfileView(props) {
       }
     
     useEffect( () => {
-        if (user) {
-        getUser(username, token)
+        if (token!== null) {
+        getUser(user, token);
         }
-    })
+    }, []);
 
     const updateUser = (token, username) => {
         axios.put(`https://dennisflix.herokuapp.com/users/${username}`,  {
