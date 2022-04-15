@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import PropTypes from "prop-types";
-import {Button, Form, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
+import { Button, Form, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
+
+
 import axios from 'axios';
 
 export function RegistrationView() {
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [ birthday, setBirth_Date] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [birthday, setBirthday] = useState('');
   const [email, setEmail] = useState('');
 
 
@@ -15,11 +16,11 @@ export function RegistrationView() {
     console.log(username, password, birthday, email);
     /* Send a request to the server for authentication */
     axios.post("https://dennisflix.herokuapp.com/users", {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birth_Date: birthday,
-      })
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday
+    })
       .then((response) => {
         const data = response.data;
         console.log(data);
@@ -37,50 +38,49 @@ export function RegistrationView() {
           <CardGroup>
             <Card>
               <Card.Body>
-              <Card.Title>Please Register:</Card.Title>
+                <Card.Title>Please Register:</Card.Title>
                 <Form>
                   <Form.Group>
                     <Form.Label>Username:</Form.Label>
-                    <Form.Control 
-                      type="text" 
-                      value={username} 
+                    <Form.Control
+                      type="text"
+                      value={username}
                       onChange={e => setUsername(e.target.value)}
-                      placeholder = "Enter your Username here..." 
+                      placeholder="Enter your Username here..."
                       required
                     />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Password:</Form.Label>
-                    <Form.Control 
-                    type="password" 
-                    value={password} 
-                    onChange={e => setPassword(e.target.value)} 
-                    placeholder="Enter your Password here..."
-                    required
-                    minLength="8"
+                    <Form.Control
+                      type="password"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                      placeholder="Enter your Password here..."
+                      required
+                      minLength="8"
                     />
                   </Form.Group>
                   <Form.Group>
-                  <Form.Label>Birthday:</Form.Label>
-                    <Form.Control 
+                    <Form.Label>Birthday:</Form.Label>
+                    <Form.Control
                       type="date" 
-                      value={birthday} 
-                      onChange={e => setBirth_Date(e.target.value)} 
-                      placeholder="Enter your Birthday here..."
-                      />
+                      onChange={e => setBirthday(e.target.value)}
+                    />
+
 
                   </Form.Group>
                   <Form.Group>
-                  <Form.Label>Email:</Form.Label>
-                  <Form.Control
-                    type="email" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)}
-                    placeholder="Enter your Email-Adress here..." />
-                    required
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control
+                      type="email"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      placeholder="Enter your Email-Adress here..." required />
+
                   </Form.Group>
-                  
-                  <Button variant= "primary" type="submit" onClick={handleSubmit}>Register</Button>
+
+                  <Button variant="primary" type="submit" onClick={handleSubmit}>Register</Button>
                 </Form>
               </Card.Body>
             </Card>

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Button, Form, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
-
 import { FavoriteMovies } from './favorite-movies';
 
 export function ProfileView(props) {
@@ -26,7 +25,7 @@ export function ProfileView(props) {
             setUsername(response.data.Username)
             setPassword(response.data.Password)
             setEmail(response.data.Email)
-            setBirthday(response.data.Birth_Date)
+            setBirthday(response.data.Birthday)
             setFavoriteMovieList(movies.filter(m => response.data.FavoriteMovies.includes(m._id)));
 
           })
@@ -41,12 +40,12 @@ export function ProfileView(props) {
         }
     }, []);
 
-    const updateUser = (token, username) => {
-        axios.put(`https://dennisflix.herokuapp.com/users/${username}`,  {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birth_Date: birthday
+    const updateUser = (token, user) => {
+        axios.put(`https://dennisflix.herokuapp.com/users/${user}`,  {
+            "Password": password,
+            "Email": email,
+            "Birthday": birthday,
+            "Username": username
         }, {
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -55,6 +54,10 @@ export function ProfileView(props) {
             .then(response => {
                 //Assign the result to the userdata
                 alert("Profile updated successfully!")
+                setUsername(response.data.Username)
+                setPassword(response.data.Password)
+                setEmail(response.data.Email)
+                setBirthday(response.data.Birthday)
             })
             .catch(err => {
                 alert("errrrr")
@@ -64,7 +67,7 @@ export function ProfileView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        updateUser(token, username);
+        updateUser(token, user);
     }
 
     /* Function that allows users to remove a movie from their list of favorites */
@@ -105,7 +108,6 @@ export function ProfileView(props) {
                                         <Form.Label>Password:</Form.Label>
                                         <Form.Control
                                             type="password"
-                                            value={password}
                                             onChange={e => setPassword(e.target.value)}
                                             placeholder="Enter your Password here..."
                                             minLength="8"
@@ -117,6 +119,7 @@ export function ProfileView(props) {
                                             type="date"
                                             value={birthday}
                                             onChange={e => setBirthday(e.target.value)}
+                                           
                                         />
 
                                     </Form.Group>
