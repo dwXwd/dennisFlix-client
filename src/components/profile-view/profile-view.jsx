@@ -15,24 +15,22 @@ export function ProfileView(props) {
     const [favoriteMovieList, setFavoriteMovieList] = useState ([]);
     const token = localStorage.getItem('token');
 
-    const  getUser = (username, token) => {
-        axios.get(`https://dennisflix.herokuapp.com/users/${username}`, {
-            headers: { Authorization: `Bearer ${token}` }
+    const getUser = (username, token) => {
+        axios
+          .get(`https://dennisflix.herokuapp.com/users/${username}`, {
+            headers: { Authorization: `Bearer ${token}` },
           })
-          .then(response => {
-            const userData = response.data;
-            console.log(userData);
-            setUsername(response.data.Username)
-            setPassword(response.data.Password)
-            setEmail(response.data.Email)
-            setBirthday(response.data.Birthday)
-            setFavoriteMovieList(movies.filter(m => response.data.FavoriteMovies.includes(m._id)));
-
+          .then((response) => {
+            setUsername(response.data.Username);
+            setPassword(response.data.Password);
+            setEmail(response.data.Email);
+            setBirthday(response.data.Birthday);
+            setFavoriteMovieList(response.data.FavoriteMovies);
           })
           .catch(function (error) {
             console.log(error);
           });
-      }
+      };
     
     useEffect( () => {
         if (token!== null) {
@@ -76,9 +74,9 @@ export function ProfileView(props) {
             headers: { Authorization: `Bearer ${token}` }
           })
             .then(() => {
-                // Change state of favoriteMovieList to rerender component
-                setFavoriteMovieList(props.movies.filter(m => response.data.FavoriteMovies.includes(m._id)));
-
+                setFavoriteMovieList(
+                    favoriteMovieList.filter((movieId) => movieId !== id)
+                  );
             })
             .catch(e => {
                 console.log(e);
@@ -142,7 +140,12 @@ export function ProfileView(props) {
 
             </Row>
             {/* List of favorite movies */}
-            <FavoriteMovies favoriteMovieList={favoriteMovieList} removeFav={removeFav} />
+            <FavoriteMovies
+        favoriteMovieList={movies.filter((m) =>
+          favoriteMovieList.includes(m._id)
+        )}
+        removeFav={removeFav}
+      />
         </Container>
 
 
