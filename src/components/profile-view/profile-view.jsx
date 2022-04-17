@@ -38,7 +38,7 @@ export function ProfileView(props) {
         }
     }, []);
 
-    const deleteUser = (token, user) => {
+    const deleteUser = (user, token) => {
         axios.delete(`https://dennisflix.herokuapp.com/users/${user}`,  {
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -152,7 +152,7 @@ export function ProfileView(props) {
                                 </Form>
                             </Card.Body>
                             <Card.Footer className='text-center'>
-                  <Button  onClick={() => this.deleteUser()}>Delete this User</Button>
+                  <Button  onClick={() => deleteUser(user, token)}>Delete this User</Button>
                 </Card.Footer>
                         </Card>
                     </CardGroup>
