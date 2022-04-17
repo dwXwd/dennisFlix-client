@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Container, Col, Row, Card, Button, CardGroup} from 'react-bootstrap';
+import {Container, Card, Button, CardGroup} from 'react-bootstrap';
 
 import { Link } from "react-router-dom";
 
@@ -39,7 +39,7 @@ MovieCard.propTypes = {
       Name: PropTypes.string.isRequired,
       Description: PropTypes.string.isRequired
     }),
-    Actors: PropTypes.string.isRequired,
+    Actors: PropTypes.array.isRequired,
     ImagePath: PropTypes.string.isRequired
   }).isRequired
 };

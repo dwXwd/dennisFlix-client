@@ -24581,6 +24581,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView
+<<<<<<< Updated upstream
 ) /*
 export class MainView extends React.Component{
   constructor() {
@@ -24591,11 +24592,15 @@ export class MainView extends React.Component{
     };
   }
 }*/ ;
+);
+>>>>>>> Stashed changes
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _movieViewScss = require("./movie-view.scss");
 var _reactBootstrap = require("react-bootstrap");
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRouterDom = require("react-router-dom");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
@@ -24631,20 +24636,32 @@ class MovieView extends _reactDefault.default.Component {
             className: "movie-view",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                 lineNumber: 44
+=======
+                lineNumber: 13
+>>>>>>> Stashed changes
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                 className: "movie-poster",
                 __source: {
                     fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                     lineNumber: 45
+=======
+                    lineNumber: 14
+>>>>>>> Stashed changes
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                         lineNumber: 46
+=======
+                        lineNumber: 15
+>>>>>>> Stashed changes
                     },
                     __self: this,
                     children: [
@@ -24652,13 +24669,21 @@ class MovieView extends _reactDefault.default.Component {
                             id: "movie-view",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                 lineNumber: 47
+=======
+                                lineNumber: 16
+>>>>>>> Stashed changes
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                     lineNumber: 48
+=======
+                                    lineNumber: 17
+>>>>>>> Stashed changes
                                 },
                                 __self: this,
                                 children: [
@@ -24668,7 +24693,11 @@ class MovieView extends _reactDefault.default.Component {
                                         src: movie.ImagePath,
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                             lineNumber: 49
+=======
+                                            lineNumber: 18
+>>>>>>> Stashed changes
                                         },
                                         __self: this
                                     }),
@@ -24677,7 +24706,11 @@ class MovieView extends _reactDefault.default.Component {
                                         className: "movie-title",
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                             lineNumber: 50
+=======
+                                            lineNumber: 19
+>>>>>>> Stashed changes
                                         },
                                         __self: this,
                                         children: movie.Title
@@ -24687,7 +24720,11 @@ class MovieView extends _reactDefault.default.Component {
                                         className: "movie-description",
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                             lineNumber: 51
+=======
+                                            lineNumber: 20
+>>>>>>> Stashed changes
                                         },
                                         __self: this,
                                         children: movie.Description
@@ -24696,14 +24733,22 @@ class MovieView extends _reactDefault.default.Component {
                                         to: `/directors/${movie.Director.Name}`,
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                             lineNumber: 53
+=======
+                                            lineNumber: 22
+>>>>>>> Stashed changes
                                         },
                                         __self: this,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                             variant: "link",
                                             __source: {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                                 lineNumber: 54
+=======
+                                                lineNumber: 23
+>>>>>>> Stashed changes
                                             },
                                             __self: this,
                                             children: "Director"
@@ -24713,14 +24758,22 @@ class MovieView extends _reactDefault.default.Component {
                                         to: `/genres/${movie.Genre.Name}`,
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                             lineNumber: 56
+=======
+                                            lineNumber: 25
+>>>>>>> Stashed changes
                                         },
                                         __self: this,
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                             variant: "link",
                                             __source: {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                                 lineNumber: 57
+=======
+                                                lineNumber: 26
+>>>>>>> Stashed changes
                                             },
                                             __self: this,
                                             children: "Genre"
@@ -24731,7 +24784,11 @@ class MovieView extends _reactDefault.default.Component {
                                         className: "movie-actors",
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                             lineNumber: 59
+=======
+                                            lineNumber: 28
+>>>>>>> Stashed changes
                                         },
                                         __self: this,
                                         children: [
@@ -24748,7 +24805,11 @@ class MovieView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
+<<<<<<< Updated upstream
                                 lineNumber: 63
+=======
+                                lineNumber: 32
+>>>>>>> Stashed changes
                             },
                             __self: this,
                             children: "Back"
@@ -24771,13 +24832,36 @@ class MovieView extends _reactDefault.default.Component {
         }));
     }
 }
+<<<<<<< Updated upstream
+=======
+MovieView.propTypes = {
+    movie: _propTypesDefault.default.shape({
+        Title: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired,
+        Director: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Bio: _propTypesDefault.default.string.isRequired
+        }),
+        Genre: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Description: _propTypesDefault.default.string.isRequired
+        }),
+        Actors: _propTypesDefault.default.array.isRequired,
+        ImagePath: _propTypesDefault.default.string.isRequired
+    }).isRequired
+};
+>>>>>>> Stashed changes
 
   $parcel$ReactRefreshHelpers$3741.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< Updated upstream
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"lTrnZ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"avvzX","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","./movie-view.scss":"kvL93","axios":"iYoWk"}],"lTrnZ":[function(require,module,exports) {
+=======
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"lTrnZ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"avvzX","react-bootstrap":"h2YVd","react-router-dom":"cpyQW","prop-types":"1tgq3"}],"lTrnZ":[function(require,module,exports) {
+>>>>>>> Stashed changes
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -40310,6 +40394,14 @@ function RegistrationView() {
 }
 _s(RegistrationView, "MWj3HdQRSj+7T3fdvwpRB3t7hec=");
 _c = RegistrationView;
+RegistrationView.propTypes = {
+    register: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired
+    }),
+    onRegistered: _propTypesDefault.default.func
+};
 var _c;
 $RefreshReg$(_c, "RegistrationView");
 
@@ -42761,7 +42853,7 @@ MovieCard.propTypes = {
             Name: _propTypesDefault.default.string.isRequired,
             Description: _propTypesDefault.default.string.isRequired
         }),
-        Actors: _propTypesDefault.default.string.isRequired,
+        Actors: _propTypesDefault.default.array.isRequired,
         ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired
 };

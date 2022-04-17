@@ -1,6 +1,13 @@
+<<<<<<< Updated upstream
 import React from "react";
 import "./movie-view.scss"
 import { Card, Col, Container, Row, Button} from "react-bootstrap";
+=======
+import React from 'react';
+import {Container, Col, Row, Button, Card} from 'react-bootstrap';
+import PropTypes from "prop-types";
+
+>>>>>>> Stashed changes
 import { Link } from "react-router-dom";
 import axios from 'axios'
 
@@ -17,6 +24,7 @@ export class MovieView extends React.Component {
 
 
 
+<<<<<<< Updated upstream
 
   addFav(id) {
     const username = localStorage.getItem('user');
@@ -80,3 +88,21 @@ export class MainView extends React.Component{
     };
   }
 }*/
+=======
+MovieView.propTypes = {
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired
+    }),
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired
+    }),
+    Actors: PropTypes.array.isRequired,
+    ImagePath: PropTypes.string.isRequired
+  }).isRequired
+};
+>>>>>>> Stashed changes
