@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import {Form, Button} from 'react-bootstrap';
-import { RegistrationView } from '../registration-view/registration-view';
-
 import {Button, Form, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
 // src/components/login-view/login-view.jsx
 
@@ -51,7 +49,6 @@ export function LoginView(props) {
                   <Button variant="primary" type="submit" onClick={handleSubmit}>
                     Submit
                   </Button>
-                  <Button>Not registered yet?</Button>
                 </Form>
               </Card.Body>
             </Card>
