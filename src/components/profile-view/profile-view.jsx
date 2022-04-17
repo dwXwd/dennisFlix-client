@@ -38,6 +38,23 @@ export function ProfileView(props) {
         }
     }, []);
 
+    const deleteUser = (token, user) => {
+        axios.delete(`https://dennisflix.herokuapp.com/users/${user}`,  {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            console.log(response);
+            alert("Profile successfully deleted");
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
+            window.open('/', '_self');
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
     const updateUser = (token, user) => {
         axios.put(`https://dennisflix.herokuapp.com/users/${user}`,  {
             "Password": password,
@@ -134,6 +151,9 @@ export function ProfileView(props) {
                                     <Button variant="primary" type="submit" onClick={handleSubmit}>Update</Button>
                                 </Form>
                             </Card.Body>
+                            <Card.Footer className='text-center'>
+                  <Button  onClick={() => this.deleteUser()}>Delete this User</Button>
+                </Card.Footer>
                         </Card>
                     </CardGroup>
                 </Col>
