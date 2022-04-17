@@ -14,11 +14,7 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 
-<<<<<<< Updated upstream
-import { Row, Col, Card, Cardgroup, Container, Button } from 'react-bootstrap';
-=======
 import { Row, Col} from 'react-bootstrap';
->>>>>>> Stashed changes
 
 
 class MainView extends React.Component {
@@ -27,13 +23,7 @@ class MainView extends React.Component {
     //intial state is set to null
     this.state = {
       user: null,
-<<<<<<< Updated upstream
-      movies: [],
-      selectedMovie: null
-    }
-=======
     };
->>>>>>> Stashed changes
   }
 
 
@@ -102,14 +92,10 @@ class MainView extends React.Component {
   }
 
   render() {
-<<<<<<< Updated upstream
-    const { movies, user } = this.state;
-=======
     let {movies} = this.props;
     let {user} = this.state;
 
 
->>>>>>> Stashed changes
 
     return (
         <Router>
