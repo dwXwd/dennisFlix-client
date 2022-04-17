@@ -4,13 +4,17 @@ A client-side application, created with React.js and Sass, called dennisFlix tha
 
 ## Technologies used
 
--HTML
--CSS (SCSS)
--Javascript
--REACT.js
+- React
+- React Bootstrap
+- React Redux
+- React Router
+- Redux
+- Axios
+- PropTypes
 
-## Description
-
+# Hosting
+- Heroku (API Backed hosting)
+- MongoDB Atlas (API Database hosting)
 
 
 
