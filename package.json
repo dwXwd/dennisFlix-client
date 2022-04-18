@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "A client-side application, created with React.js and Sass, called dennisFlix that uses pre-existing server-side code (REST - API ond Mongo-DB)",
   "source": "src/index.html",
-  "scripts": {},
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dwXwd/dennisFLix-client.git"
@@ -17,7 +21,6 @@
   "dependencies": {
     "axios": "^0.26.1",
     "parcel": "^2.4.1",
-    "parcel-bundler": "^1.12.5",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.1",
