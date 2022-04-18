@@ -4,8 +4,8 @@
   "description": "A client-side application, created with React.js and Sass, called dennisFlix that uses pre-existing server-side code (REST - API ond Mongo-DB)",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel create"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",
