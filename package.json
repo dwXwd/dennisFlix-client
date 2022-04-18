@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dwXwd/dennisFLix-client#readme",
   "dependencies": {
     "axios": "^0.26.1",
+    "parcel": "^2.4.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.1",
